@@ -11,7 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.16.1
-  shared_preferences: ^0.5.8
+  streaming_shared_preferences:
+    git:
+      url: https://gitlab.com/topfreelancerdeveloper/streaming_shared_preferences.git
 
 dev_dependencies:
   flutter_test:

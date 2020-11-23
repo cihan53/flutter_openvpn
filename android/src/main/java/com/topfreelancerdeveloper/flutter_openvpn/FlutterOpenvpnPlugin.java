@@ -1,6 +1,7 @@
 package com.topfreelancerdeveloper.flutter_openvpn;
 
 import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -97,23 +98,21 @@ public class FlutterOpenvpnPlugin implements FlutterPlugin, MethodCallHandler, A
         vpn.setOnVPNStatusChangeListener(new OnVPNStatusChangeListener() {
           @Override
           public void onProfileLoaded(boolean profileLoaded) {
-            channel.invokeMethod(profileLoaded ? VpnStatus.ProfileLoaded.callMethod : VpnStatus.ProfileLoadFailed.callMethod , null);
+            //channel.invokeMethod(profileLoaded ? VpnStatus.ProfileLoaded.callMethod : VpnStatus.ProfileLoadFailed.callMethod , null);
+            activity.getPreferences(Context.MODE_PRIVATE).edit().putString("profile" , profileLoaded ? "1" : "0").apply();
             if(profileLoaded){ vpn.init(); result.success(null);}
           }
 
           @Override
           public void onVPNStatusChanged(String status) {
-            channel.invokeMethod(status , null);
+            activity.getPreferences(Context.MODE_PRIVATE).edit().putString("vpnStatus" , status).apply();
+
           }
 
           @Override
           public void onConnectionStatusChanged(String duration , String  lastPacketRecieve , String byteIn , String byteOut) {
-            HashMap<String,String> response = new HashMap<>();
-            response.put("duration" ,duration);
-            response.put("lastPacketRecieve" , lastPacketRecieve);
-            response.put("byteIn" , byteIn);
-            response.put("byteOut" , byteOut);
-            channel.invokeMethod("connectionUpdate" , response);
+            activity.getPreferences(Context.MODE_PRIVATE).edit().putString("connectionUpdate" , duration + '_' + lastPacketRecieve + '_' + byteIn + '_' + byteOut).apply();
+
           }
         });
         vpn.launchVPN(config , expireAt, user, pass);
