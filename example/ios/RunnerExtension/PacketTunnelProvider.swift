@@ -212,7 +212,7 @@ extension PacketTunnelProvider: OpenVPNAdapterDelegate {
             toSave += String(openVPNAdapter.transportStatistics.bytesOut)
             
             
-            UserDefaults.setValue(toSave, forKey: "iosVpnStats")
+            UserDefaults.init(suiteName: "flutter_openvpn")?.setValue(toSave, forKey: "connectionUpdate")
 
         default:
             break

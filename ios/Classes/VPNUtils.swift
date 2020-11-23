@@ -5,6 +5,7 @@
 //  Created by A A9906 on 7/8/20.
 //
 import NetworkExtension
+import UIKit
 
 @available(iOS 9.0, *)
 class VPNUtils {
@@ -32,25 +33,32 @@ class VPNUtils {
     func onVpnStatusChanged(notification : NEVPNStatus) {
         switch notification {
         case NEVPNStatus.connected:
-            channel.invokeMethod("CONNECTED" , arguments: nil);
+            //channel.invokeMethod("CONNECTED" , arguments: nil);
+            UserDefaults.init(suiteName: "flutter_openvpn")?.setValue("CONNECTED", forKey: "vpnStatus")
             break;
             case NEVPNStatus.connecting:
-            channel.invokeMethod("CONNECTING" , arguments: nil);
+            //channel.invokeMethod("CONNECTING" , arguments: nil);
+            UserDefaults.init(suiteName: "flutter_openvpn")?.setValue("CONNECTING", forKey: "vpnStatus")
             break;
             case NEVPNStatus.disconnected:
-            channel.invokeMethod("DISCONNECTED", arguments: nil);
+            //channel.invokeMethod("DISCONNECTED", arguments: nil);
+            UserDefaults.init(suiteName: "flutter_openvpn")?.setValue("DISCONNECTED", forKey: "vpnStatus")
             break;
             case NEVPNStatus.disconnecting:
-            channel.invokeMethod("DISCONNECTING", arguments: nil);
+            //channel.invokeMethod("DISCONNECTING", arguments: nil);
+            UserDefaults.init(suiteName: "flutter_openvpn")?.setValue("DISCONNECTING", forKey: "vpnStatus")
             break;
             case NEVPNStatus.invalid:
-            channel.invokeMethod("INVALID", arguments: nil);
+            //channel.invokeMethod("INVALID", arguments: nil);
+            UserDefaults.init(suiteName: "flutter_openvpn")?.setValue("INVALID", forKey: "vpnStatus")
             break;
             case NEVPNStatus.reasserting:
-            channel.invokeMethod("REASSERTING", arguments: nil);
+            //channel.invokeMethod("REASSERTING", arguments: nil);
+            UserDefaults.init(suiteName: "flutter_openvpn")?.setValue("REASSERTING", forKey: "vpnStatus")
             break;
         default:
-            channel.invokeMethod("NULL", arguments: nil);
+            //channel.invokeMethod("NULL", arguments: nil);
+            UserDefaults.init(suiteName: "flutter_openvpn")?.setValue("NULL", forKey: "vpnStatus")
             break;
         }
     }
@@ -113,11 +121,13 @@ class VPNUtils {
                   if error == nil  {
                      self.providerManager.loadFromPreferences(completionHandler: { (error) in
                         if error != nil {
-                            self.channel.invokeMethod("profileloadfailed", arguments: nil)
+                            //self.channel.invokeMethod("profileloadfailed", arguments: nil)
+                            UserDefaults.init(suiteName: "flutter_openvpn")?.setValue("0", forKey: "profile")
                             completion(error);
                             return;
                         }
-                        self.channel.invokeMethod("profileloaded", arguments: nil)
+                        //self.channel.invokeMethod("profileloaded", arguments: nil)
+                        UserDefaults.init(suiteName: "flutter_openvpn")?.setValue("1", forKey: "profile")
                          do {
                             NotificationCenter.default.addObserver(forName: NSNotification.Name.NEVPNStatusDidChange, object: nil , queue: nil) {
                                notification in
@@ -132,7 +142,8 @@ class VPNUtils {
                            try self.providerManager.connection.startVPNTunnel() // starts the VPN tunnel.
                             completion(nil);
                          } catch let error {
-                            self.channel.invokeMethod("profileloadfailed", arguments: nil)
+                            //self.channel.invokeMethod("profileloadfailed", arguments: nil)
+                            UserDefaults.init(suiteName: "flutter_openvpn")?.setValue("0", forKey: "profile")
                             completion(error);
                          }
                      })
