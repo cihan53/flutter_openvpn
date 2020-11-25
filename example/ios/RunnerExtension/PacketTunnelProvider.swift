@@ -121,6 +121,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(stopInSeconds)) {
                 self.stopVPN()
+                UserDefaults.init(suiteName: "group.com.topfreelancerdeveloper.flutterOpenvpnExample")?.setValue("EXPIRED", forKey: "vpnStatus")
             }
             
             
@@ -170,10 +171,30 @@ extension PacketTunnelProvider: OpenVPNAdapterDelegate {
 
         // Set the network settings for the current tunneling session.
         setTunnelNetworkSettings(networkSettings, completionHandler: completionHandler)
+        _updateConnectionStatus(openVPNAdapter)
     }
-
+    
+    func _updateConnectionStatus(_ openVPNAdapter: OpenVPNAdapter) {
+        var toSave = ""
+           let formatter = DateFormatter();
+           formatter.dateFormat = "yyyy-MM-dd HH:mm:ss";
+           if openVPNAdapter.transportStatistics.lastPacketReceived != nil{
+               toSave += formatter.string(from: openVPNAdapter.transportStatistics.lastPacketReceived!)
+           }
+           toSave+="_"
+           toSave += String(openVPNAdapter.transportStatistics.packetsIn)
+           toSave+="_"
+           toSave += String(openVPNAdapter.transportStatistics.bytesIn)
+           toSave+="_"
+           toSave += String(openVPNAdapter.transportStatistics.bytesOut)
+           
+           
+           UserDefaults.init(suiteName: "group.com.topfreelancerdeveloper.flutterOpenvpnExample")?.setValue(toSave, forKey: "connectionUpdate")
+    }
+    
     // Process events returned by the OpenVPN library
     func openVPNAdapter(_ openVPNAdapter: OpenVPNAdapter, handleEvent event: OpenVPNAdapterEvent, message: String?) {
+        _updateConnectionStatus(openVPNAdapter)
         switch event {
         case .connected:
             if reasserting {
@@ -184,7 +205,6 @@ extension PacketTunnelProvider: OpenVPNAdapterDelegate {
 
             startHandler(nil)
             self.startHandler = nil
-
         case .disconnected:
             guard let stopHandler = stopHandler else { return }
 
@@ -194,26 +214,8 @@ extension PacketTunnelProvider: OpenVPNAdapterDelegate {
 
             stopHandler()
             self.stopHandler = nil
-
         case .reconnecting:
             reasserting = true
-        case .info:
-            var toSave = ""
-            let formatter = DateFormatter();
-            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss";
-            if openVPNAdapter.transportStatistics.lastPacketReceived != nil{
-                toSave += formatter.string(from: openVPNAdapter.transportStatistics.lastPacketReceived!)
-            }
-            toSave+="_"
-            toSave += String(openVPNAdapter.transportStatistics.packetsIn)
-            toSave+="_"
-            toSave += String(openVPNAdapter.transportStatistics.bytesIn)
-            toSave+="_"
-            toSave += String(openVPNAdapter.transportStatistics.bytesOut)
-            
-            
-            UserDefaults.init(suiteName: "flutter_openvpn")?.setValue(toSave, forKey: "connectionUpdate")
-
         default:
             break
         }
@@ -221,6 +223,7 @@ extension PacketTunnelProvider: OpenVPNAdapterDelegate {
 
     // Handle errors thrown by the OpenVPN library
     func openVPNAdapter(_ openVPNAdapter: OpenVPNAdapter, handleError error: Error) {
+        _updateConnectionStatus(openVPNAdapter)
         // Handle only fatal errors
         guard let fatal = (error as NSError).userInfo[OpenVPNAdapterErrorFatalKey] as? Bool, fatal == true else {
             return
@@ -240,6 +243,7 @@ extension PacketTunnelProvider: OpenVPNAdapterDelegate {
 
     // Use this method to process any log message returned by OpenVPN library.
     func openVPNAdapter(_ openVPNAdapter: OpenVPNAdapter, handleLogMessage logMessage: String) {
+        _updateConnectionStatus(openVPNAdapter)
         // Handle log messages
     }
 
