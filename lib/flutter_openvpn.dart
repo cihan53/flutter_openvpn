@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 
 typedef OnConnectionStatusChanged = Function(
@@ -21,6 +23,7 @@ typedef OnVPNStatusChanged = Function(String status);
 const String _profile = "profile";
 const String _connectionUpdate = 'connectionUpdate';
 const String _vpnStatus = 'vpnStatus';
+const String _connectionId = "connectionId";
 
 class FlutterOpenvpn {
   static const MethodChannel _channel = const MethodChannel('flutter_openvpn');
@@ -44,7 +47,10 @@ class FlutterOpenvpn {
   ///
   ///  returns null if failed
   static Future<dynamic> init(
-      {String providerBundleIdentifier, String localizedDescription}) async {
+      {String providerBundleIdentifier,
+      String localizedDescription,
+      String groupIdentifier}) async {
+    if (Platform.isIOS) assert(groupIdentifier != null);
     dynamic isInited = await _channel.invokeMethod("init", {
       'localizedDescription': localizedDescription,
       'providerBundleIdentifier': providerBundleIdentifier,
@@ -70,19 +76,42 @@ class FlutterOpenvpn {
         }
         return null;
       }); */
-      StreamingSharedPreferences.setPrefsName("flutter_openvpn");
-      StreamingSharedPreferences.addObserver(_connectionUpdate, (value) {
+
+      StreamingSharedPreferences sp = StreamingSharedPreferences();
+      sp.setPrefsName("flutter_openvpn");
+      sp.addObserver(_connectionUpdate, (value) {
         List<String> values = value.split('_');
         _onConnectionStatusChanged?.call(
             values[0], values[1], values[2], value[3]);
       });
-      StreamingSharedPreferences.addObserver(_profile, (value) {
+      sp.addObserver(_profile, (value) {
         _onProfileStatusChanged?.call(value == '0' ? false : true);
       });
-      StreamingSharedPreferences.addObserver(_vpnStatus, (value) {
+      sp.addObserver(_vpnStatus, (value) {
         _onVPNStatusChanged?.call(value);
       });
-      StreamingSharedPreferences.run();
+      sp.run();
+
+      if (Platform.isIOS) {
+        StreamingSharedPreferences spGroup = StreamingSharedPreferences();
+        spGroup.setPrefsName(groupIdentifier);
+        spGroup.addObserver(_connectionUpdate, (value) {
+          List<String> values = value.split('_');
+          _onConnectionStatusChanged?.call(
+              values[0], values[1], values[2], value[3]);
+        });
+        spGroup.addObserver(_vpnStatus, (value) {
+          _onVPNStatusChanged?.call(value);
+        });
+        spGroup.run();
+      }
+
+      SharedPreferences spId = await SharedPreferences.getInstance();
+      if (spId.containsKey(_connectionId)) {
+        List<String> splited = spId.getString(_connectionId).split('{||}');
+        isInited.putIfAbsent('connectionId', () => splited[1]);
+        isInited.putIfAbsent('connectionName', () => splited[0]);
+      }
       return isInited;
     } else {
       print('OpenVPN Initilization failed');
@@ -104,16 +133,22 @@ class FlutterOpenvpn {
     String user = '',
     String pass = '',
     OnConnectionStatusChanged onConnectionStatusChanged,
+    String connectionName,
+    String connectionId,
   }) async {
     _onProfileStatusChanged = onProfileStatusChanged;
     _onVPNStatusChanged = onVPNStatusChanged;
     _onConnectionStatusChanged = onConnectionStatusChanged;
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    await sp.setString(_connectionId, '$connectionName{||}$connectionId');
     dynamic isLunched = await _channel.invokeMethod(
       "lunch",
       {
         'ovpnFileContent': ovpnFileContents,
-        'user': user,
-        'pass': pass,
+        'user': user ?? "",
+        'pass': pass ?? "",
+        'conName': connectionName ?? "",
+        'conId': connectionId ?? "",
         'expireAt': expireAt == null
             ? null
             : DateFormat("yyyy-MM-dd HH:mm:ss").format(expireAt),

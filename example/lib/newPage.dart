@@ -13,10 +13,12 @@ class NewPAge extends StatelessWidget {
   Widget build(BuildContext context) {
     if (page == '0')
       FlutterOpenvpn.init(
-        localizedDescription: "ExampleVPN",
-        providerBundleIdentifier:
-            "com.topfreelancerdeveloper.flutterOpenvpnExample.RunnerExtension",
-      ).then((value) {
+              localizedDescription: "ExampleVPN",
+              providerBundleIdentifier:
+                  "com.topfreelancerdeveloper.flutterOpenvpnExample.RunnerExtension",
+              groupIdentifier:
+                  'group.com.topfreelancerdeveloper.flutterOpenvpnExample')
+          .then((value) {
         print(value);
         Fluttertoast.showToast(msg: value.toString(), textColor: Colors.red);
       });
