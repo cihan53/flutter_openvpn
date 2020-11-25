@@ -36,7 +36,7 @@ android {
         disable 'InvalidPackage'
     }
     dependencies {
-        implementation 'com.github.Topfreelancerdeveloperr:flutter_openvpn_library_updated:13f4b69fd1'
+        implementation 'com.github.Topfreelancerdeveloperr:flutter_openvpn_library_updated:c658076896'
     }
 
 }
