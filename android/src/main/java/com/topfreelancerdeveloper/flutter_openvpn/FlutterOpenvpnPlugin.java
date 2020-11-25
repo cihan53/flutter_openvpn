@@ -87,6 +87,7 @@ public class FlutterOpenvpnPlugin implements FlutterPlugin, MethodCallHandler, A
         String expireAt = call.argument("expireAt");
         String user = call.argument("user");
         String pass = call.argument("pass");
+        String country = call.argument("conName");
         if(vpn == null) {
           result.error("-1", "OpenVpnPlugin not initialized", null);
           return;
@@ -115,7 +116,7 @@ public class FlutterOpenvpnPlugin implements FlutterPlugin, MethodCallHandler, A
 
           }
         });
-        vpn.launchVPN(config , expireAt, user, pass);
+        vpn.launchVPN(config , expireAt, user, pass, country);
 
 
       }else if(call.method.equals("stop")){

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_openvpn/flutter_openvpn.dart';
 import 'package:flutter_openvpn_example/main.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 
 class NewPAge extends StatelessWidget {
   static String subPath = '/page';
@@ -20,7 +20,7 @@ class NewPAge extends StatelessWidget {
                   'group.com.topfreelancerdeveloper.flutterOpenvpnExample')
           .then((value) {
         print(value);
-        Fluttertoast.showToast(msg: value.toString(), textColor: Colors.red);
+        //Fluttertoast.showToast(msg: value.toString(), textColor: Colors.red);
       });
     if (page == '2') MyApp.initPlatformState();
     if (navigate) {
