@@ -88,6 +88,8 @@ public class FlutterOpenvpnPlugin implements FlutterPlugin, MethodCallHandler, A
         String user = call.argument("user");
         String pass = call.argument("pass");
         String country = call.argument("conName");
+        String conId = call.argument("conId");
+        Integer timeOut = call.argument("timeOut");
         if(vpn == null) {
           result.error("-1", "OpenVpnPlugin not initialized", null);
           return;
@@ -96,27 +98,8 @@ public class FlutterOpenvpnPlugin implements FlutterPlugin, MethodCallHandler, A
           result.error("-2", "Null or Empty Vpn Config", null);
           return;
         }
-        vpn.setOnVPNStatusChangeListener(new OnVPNStatusChangeListener() {
-          @Override
-          public void onProfileLoaded(boolean profileLoaded) {
-            //channel.invokeMethod(profileLoaded ? VpnStatus.ProfileLoaded.callMethod : VpnStatus.ProfileLoadFailed.callMethod , null);
-            activity.getPreferences(Context.MODE_PRIVATE).edit().putString("profile" , profileLoaded ? "1" : "0").apply();
-            if(profileLoaded){ vpn.init(); result.success(null);}
-          }
-
-          @Override
-          public void onVPNStatusChanged(String status) {
-            activity.getPreferences(Context.MODE_PRIVATE).edit().putString("vpnStatus" , status).apply();
-
-          }
-
-          @Override
-          public void onConnectionStatusChanged(String duration , String  lastPacketRecieve , String byteIn , String byteOut) {
-            activity.getPreferences(Context.MODE_PRIVATE).edit().putString("connectionUpdate" , duration + '_' + lastPacketRecieve + '_' + byteIn + '_' + byteOut).apply();
-
-          }
-        });
-        vpn.launchVPN(config , expireAt, user, pass, country);
+       
+        vpn.launchVPN(config , expireAt, user, pass, country,conId,timeOut);
 
 
       }else if(call.method.equals("stop")){
@@ -163,3 +146,25 @@ public class FlutterOpenvpnPlugin implements FlutterPlugin, MethodCallHandler, A
 
   }
 }
+
+
+ /* vpn.setOnVPNStatusChangeListener(new OnVPNStatusChangeListener() {
+          @Override
+          public void onProfileLoaded(boolean profileLoaded) {
+            //channel.invokeMethod(profileLoaded ? VpnStatus.ProfileLoaded.callMethod : VpnStatus.ProfileLoadFailed.callMethod , null);
+            activity.getPreferences(Context.MODE_PRIVATE).edit().putString("profile" , profileLoaded ? "1" : "0").apply();
+            if(profileLoaded){ vpn.init(); result.success(null);}
+          }
+
+          @Override
+          public void onVPNStatusChanged(String status) {
+            activity.getPreferences(Context.MODE_PRIVATE).edit().putString("vpnStatus" , status).apply();
+
+          }
+
+          @Override
+          public void onConnectionStatusChanged(String duration , String  lastPacketRecieve , String byteIn , String byteOut) {
+            activity.getPreferences(Context.MODE_PRIVATE).edit().putString("connectionUpdate" , duration + '_' + lastPacketRecieve + '_' + byteIn + '_' + byteOut).apply();
+
+          }
+        }); */

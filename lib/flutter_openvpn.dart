@@ -15,7 +15,7 @@ typedef OnProfileStatusChanged = Function(bool isProfileLoaded);
 /// Track Vpn status.
 ///
 /// Status strings are but not limited to:
-/// "CONNECTING", "CONNECTED", "DISCONNECTING", "DISCONNECTED", "INVALID", "REASSERING", "AUTH", ...
+/// "CONNECTING", "CONNECTED", "DISCONNECTING", "DISCONNECTED", "TIMEOUT", "EXPIRED", "INVALID", "REASSERING", "AUTH", ...
 /// print status to get full insight.
 /// status might change depending on platform.
 typedef OnVPNStatusChanged = Function(String status);
@@ -121,6 +121,21 @@ class FlutterOpenvpn {
     }
   }
 
+  static Future<String> _currentCon() async =>
+      (await SharedPreferences.getInstance()).getString(_connectionId);
+
+  static Future<String> get currentProfileId async {
+    List<String> vars = (await _currentCon())?.split('{||}');
+    if (vars == null) return null;
+    return vars.last;
+  }
+
+  static Future<String> get currentProfileName async {
+    List<String> vars = (await _currentCon())?.split('{||}');
+    if (vars == null || vars.length != 2) return null;
+    return vars.first;
+  }
+
   /// Load profile and start connecting.
   ///
   /// if expireAt is provided
@@ -135,6 +150,7 @@ class FlutterOpenvpn {
     OnConnectionStatusChanged onConnectionStatusChanged,
     String connectionName,
     String connectionId,
+    Duration timeOut,
   }) async {
     _onProfileStatusChanged = onProfileStatusChanged;
     _onVPNStatusChanged = onVPNStatusChanged;
@@ -149,6 +165,7 @@ class FlutterOpenvpn {
         'pass': pass ?? "",
         'conName': connectionName ?? "",
         'conId': connectionId ?? "",
+        'timeOut': timeOut?.inSeconds,
         'expireAt': expireAt == null
             ? null
             : DateFormat("yyyy-MM-dd HH:mm:ss").format(expireAt),
