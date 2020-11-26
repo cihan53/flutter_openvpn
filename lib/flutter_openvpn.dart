@@ -23,6 +23,7 @@ typedef OnVPNStatusChanged = Function(String status);
 const String _profile = "profile";
 const String _connectionUpdate = 'connectionUpdate';
 const String _vpnStatus = 'vpnStatus';
+const String _vpnStatusGroup = "vpnStatusGroup";
 const String _connectionId = "connectionId";
 
 class FlutterOpenvpn {
@@ -30,6 +31,7 @@ class FlutterOpenvpn {
   static OnProfileStatusChanged _onProfileStatusChanged;
   static OnVPNStatusChanged _onVPNStatusChanged;
   static OnConnectionStatusChanged _onConnectionStatusChanged;
+  static String _vpnState = "";
 
   /// Initialize plugin.
   ///
@@ -88,6 +90,7 @@ class FlutterOpenvpn {
         _onProfileStatusChanged?.call(value == '0' ? false : true);
       });
       sp.addObserver(_vpnStatus, (value) {
+        _vpnState = value;
         _onVPNStatusChanged?.call(value);
       });
       sp.run();
@@ -100,7 +103,8 @@ class FlutterOpenvpn {
           _onConnectionStatusChanged?.call(
               values[0], values[1], values[2], value[3]);
         });
-        spGroup.addObserver(_vpnStatus, (value) {
+        spGroup.addObserver(_vpnStatusGroup, (value) {
+          _vpnState = value;
           _onVPNStatusChanged?.call(value);
         });
         spGroup.run();
@@ -150,13 +154,14 @@ class FlutterOpenvpn {
     OnConnectionStatusChanged onConnectionStatusChanged,
     String connectionName,
     String connectionId,
-    Duration timeOut,
+    Duration timeOut = const Duration(seconds: 60),
   }) async {
     _onProfileStatusChanged = onProfileStatusChanged;
     _onVPNStatusChanged = onVPNStatusChanged;
     _onConnectionStatusChanged = onConnectionStatusChanged;
     SharedPreferences sp = await SharedPreferences.getInstance();
     await sp.setString(_connectionId, '$connectionName{||}$connectionId');
+
     dynamic isLunched = await _channel.invokeMethod(
       "lunch",
       {
@@ -165,12 +170,21 @@ class FlutterOpenvpn {
         'pass': pass ?? "",
         'conName': connectionName ?? "",
         'conId': connectionId ?? "",
-        'timeOut': timeOut?.inSeconds,
+        'timeOut': Platform.isIOS
+            ? timeOut?.inSeconds?.toString()
+            : timeOut?.inSeconds,
         'expireAt': expireAt == null
             ? null
             : DateFormat("yyyy-MM-dd HH:mm:ss").format(expireAt),
       },
     ).catchError((error) => error);
+    if (Platform.isIOS && timeOut != null) {
+      Future.delayed(timeOut, () {
+        if (_vpnState != "CONNECTED" && _vpnState != "DISCONNECTED") {
+          _onVPNStatusChanged("TIMEOUT");
+        }
+      });
+    }
     if (isLunched == null) return 0;
     print((isLunched as PlatformException).message);
     return int.tryParse((isLunched as PlatformException).code);

@@ -2,9 +2,6 @@ PODS:
   - Flutter (1.0.0)
   - flutter_openvpn (0.0.1):
     - Flutter
-  - fluttertoast (0.0.2):
-    - Flutter
-    - Toast
   - OpenVPNAdapter (0.7.0):
     - OpenVPNAdapter/ASIO (= 0.7.0)
     - OpenVPNAdapter/LZ4 (= 0.7.0)
@@ -22,27 +19,19 @@ PODS:
     - Flutter
   - streaming_shared_preferences (0.0.1):
     - Flutter
-  - Toast (4.0.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_openvpn (from `.symlinks/plugins/flutter_openvpn/ios`)
-  - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - OpenVPNAdapter (from `https://github.com/ss-abramchuk/OpenVPNAdapter.git`, tag `0.7.0`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - streaming_shared_preferences (from `.symlinks/plugins/streaming_shared_preferences/ios`)
-
-SPEC REPOS:
-  trunk:
-    - Toast
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
   flutter_openvpn:
     :path: ".symlinks/plugins/flutter_openvpn/ios"
-  fluttertoast:
-    :path: ".symlinks/plugins/fluttertoast/ios"
   OpenVPNAdapter:
     :git: https://github.com/ss-abramchuk/OpenVPNAdapter.git
     :tag: 0.7.0
@@ -59,11 +48,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_openvpn: 335293c5f1d77003967244406aa744da959f4aa8
-  fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
   OpenVPNAdapter: 173fcc4c11a3a8a83ae8d250c079cdc5b9fb8ff1
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
   streaming_shared_preferences: 69ffc44e137244d456ecaced2346ab6431246442
-  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
 PODFILE CHECKSUM: 1b27cf9a470e7e4f6a2c054699ab9e3eb67ea72e
 
