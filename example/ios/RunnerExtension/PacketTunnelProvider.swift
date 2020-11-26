@@ -57,6 +57,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         let expireAt : Data? = providerConfiguration["expireAt"] as? Data? ?? nil
         let user : Data? = providerConfiguration["user"] as? Data? ?? nil
         let pass : Data? = providerConfiguration["pass"] as? Data? ?? nil
+        let timeOut : Data? = providerConfiguration["timeOut"] as? Data? ?? nil
         
 
         let configuration = OpenVPNConfiguration()
@@ -105,7 +106,19 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             guard status == .reachableViaWiFi else { return }
             self?.vpnAdapter.reconnect(afterTimeInterval: 5)
         }
-        
+        if timeOut != nil {
+            let timeOutParsedString = String(decoding: timeOut!, as: UTF8.self)
+            let timeOutParsed = Int.init(timeOutParsedString)
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(timeOutParsed!)) {
+                if self.providerManager.connection.status == .connected || self.providerManager.connection.status == .disconnected{
+                    return;
+                }
+                UserDefaults.init(suiteName: "group.com.topfreelancerdeveloper.flutterOpenvpnExample")?.setValue("TIMEOUT", forKey: "vpnStatusGroup")
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(1)) {
+                self.stopVPN()
+                }
+            }
+        }
         if expireAt != nil {
             
             var expireAtDate:Date!;
@@ -121,7 +134,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(stopInSeconds)) {
                 self.stopVPN()
-                UserDefaults.init(suiteName: "group.com.topfreelancerdeveloper.flutterOpenvpnExample")?.setValue("EXPIRED", forKey: "vpnStatus")
+                UserDefaults.init(suiteName: "group.com.topfreelancerdeveloper.flutterOpenvpnExample")?.setValue("EXPIRED", forKey: "vpnStatusGroup")
             }
             
             

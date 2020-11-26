@@ -12,6 +12,7 @@ class MyApp extends StatefulWidget {
   static Future<void> initPlatformState() async {
     await FlutterOpenvpn.lunchVpn(
       '''
+
       ''',
       (isProfileLoaded) {
         print('isProfileLoaded : $isProfileLoaded');
@@ -24,6 +25,9 @@ class MyApp extends StatefulWidget {
       onConnectionStatusChanged:
           (duration, lastPacketRecieve, byteIn, byteOut) =>
               print('BYEIN : $byteIn'),
+      connectionId: "superman",
+      connectionName: "xxx",
+      timeOut: Duration(seconds: 5),
       expireAt: DateTime.now().add(
         Duration(
           seconds: 180,
