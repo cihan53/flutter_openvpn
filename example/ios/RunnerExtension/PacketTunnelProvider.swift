@@ -46,7 +46,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         // In our case we need providerConfiguration dictionary to retrieve content
         // of the OpenVPN configuration file. Other options related to the tunnel
         // provider also can be stored there.
-        connectionIndex = connectionIndex + 1;
+        PacketTunnelProvider.connectionIndex = PacketTunnelProvider.connectionIndex + 1;
         guard
             let protocolConfiguration = protocolConfiguration as? NETunnelProviderProtocol,
             let providerConfiguration = protocolConfiguration.providerConfiguration
@@ -112,7 +112,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         if timeOut != nil {
             let timeOutParsedString = String(decoding: timeOut!, as: UTF8.self)
             let timeOutParsed = Int.init(timeOutParsedString)
-            let index = connectionIndex;
+            let index = PacketTunnelProvider.connectionIndex;
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(timeOutParsed!)) {
                 if self.providerManager.connection.status == .connected || self.providerManager.connection.status == .disconnected || PacketTunnelProvider.connectionIndex != index {
                     return;
