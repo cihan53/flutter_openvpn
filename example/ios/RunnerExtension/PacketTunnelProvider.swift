@@ -19,6 +19,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 
     var startHandler: ((Error?) -> Void)?
     var stopHandler: (() -> Void)?
+
+    static var connectionIndex = 0;
     
     func loadProviderManager(completion:@escaping (_ error : Error?) -> Void)  {
         
@@ -44,6 +46,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         // In our case we need providerConfiguration dictionary to retrieve content
         // of the OpenVPN configuration file. Other options related to the tunnel
         // provider also can be stored there.
+        connectionIndex = connectionIndex + 1;
         guard
             let protocolConfiguration = protocolConfiguration as? NETunnelProviderProtocol,
             let providerConfiguration = protocolConfiguration.providerConfiguration
@@ -109,8 +112,9 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         if timeOut != nil {
             let timeOutParsedString = String(decoding: timeOut!, as: UTF8.self)
             let timeOutParsed = Int.init(timeOutParsedString)
+            let index = connectionIndex;
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(timeOutParsed!)) {
-                if self.providerManager.connection.status == .connected || self.providerManager.connection.status == .disconnected{
+                if self.providerManager.connection.status == .connected || self.providerManager.connection.status == .disconnected || PacketTunnelProvider.connectionIndex != index {
                     return;
                 }
                 UserDefaults.init(suiteName: "group.com.topfreelancerdeveloper.flutterOpenvpnExample")?.setValue("TIMEOUT", forKey: "vpnStatusGroup")
