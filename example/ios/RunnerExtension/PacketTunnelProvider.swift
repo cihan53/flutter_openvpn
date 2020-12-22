@@ -1,5 +1,6 @@
 import NetworkExtension
 import OpenVPNAdapter
+import os.log
 
 // Extend NEPacketTunnelFlow to adopt OpenVPNAdapterPacketFlow protocol so that
 // `self.packetFlow` could be sent to `completionHandler` callback of OpenVPNAdapterDelegate
@@ -21,6 +22,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     var stopHandler: (() -> Void)?
 
     static var connectionIndex = 0;
+    static var timeOutEnabled = true;
     
     func loadProviderManager(completion:@escaping (_ error : Error?) -> Void)  {
         
@@ -114,10 +116,10 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             let timeOutParsed = Int.init(timeOutParsedString)
             let index = PacketTunnelProvider.connectionIndex;
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(timeOutParsed!)) {
-                if self.providerManager.connection.status == .connected || self.providerManager.connection.status == .disconnected || PacketTunnelProvider.connectionIndex != index {
+                if !PacketTunnelProvider.timeOutEnabled || PacketTunnelProvider.connectionIndex != index {
                     return;
                 }
-                UserDefaults.init(suiteName: "group.com.topfreelancerdeveloper.flutterOpenvpnExample")?.setValue("TIMEOUT", forKey: "vpnStatusGroup")
+                UserDefaults.init(suiteName: "YOUR_VPN_GROUP_IDENTIFIER")?.setValue("TIMEOUT", forKey: "vpnStatusGroup")
                 DispatchQueue.main.asyncAfter(deadline: .now() + Double(1)) {
                 self.stopVPN()
                 }
@@ -138,7 +140,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(stopInSeconds)) {
                 self.stopVPN()
-                UserDefaults.init(suiteName: "group.com.topfreelancerdeveloper.flutterOpenvpnExample")?.setValue("EXPIRED", forKey: "vpnStatusGroup")
+                UserDefaults.init(suiteName: "YOUR_VPN_GROUP_IDENTIFIER")?.setValue("EXPIRED", forKey: "vpnStatusGroup")
             }
             
             
@@ -206,14 +208,16 @@ extension PacketTunnelProvider: OpenVPNAdapterDelegate {
            toSave += String(openVPNAdapter.transportStatistics.bytesOut)
            
            
-           UserDefaults.init(suiteName: "group.com.topfreelancerdeveloper.flutterOpenvpnExample")?.setValue(toSave, forKey: "connectionUpdate")
+           UserDefaults.init(suiteName: "YOUR_VPN_GROUP_IDENTIFIER")?.setValue(toSave, forKey: "connectionUpdate")
     }
     
     // Process events returned by the OpenVPN library
     func openVPNAdapter(_ openVPNAdapter: OpenVPNAdapter, handleEvent event: OpenVPNAdapterEvent, message: String?) {
+        PacketTunnelProvider.timeOutEnabled = true;
         _updateConnectionStatus(openVPNAdapter)
         switch event {
         case .connected:
+        PacketTunnelProvider.timeOutEnabled = false;
             if reasserting {
                 reasserting = false
             }
@@ -223,6 +227,7 @@ extension PacketTunnelProvider: OpenVPNAdapterDelegate {
             startHandler(nil)
             self.startHandler = nil
         case .disconnected:
+            PacketTunnelProvider.timeOutEnabled = false;
             guard let stopHandler = stopHandler else { return }
 
             if vpnReachability.isTracking {
