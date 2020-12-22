@@ -210,11 +210,28 @@ extension PacketTunnelProvider: OpenVPNAdapterDelegate {
            
            UserDefaults.init(suiteName: "YOUR_VPN_GROUP_IDENTIFIER")?.setValue(toSave, forKey: "connectionUpdate")
     }
+    func _updateEvent(_ event: OpenVPNAdapterEvent) {
+        var toSave = ""
+        switch event {
+        case .connected:
+            toSave = "CONNECTED"
+        case .disconnected:
+            toSave = "DISCONNECTED"
+        case .connecting:
+            toSave = "CONNECTING"
+        case .reconnecting:
+            toSave = "RECONNECTING"
+        default:
+            toSave = "KKKKK"
+        }
+        UserDefaults.init(suiteName: "YOUR_VPN_GROUP_IDENTIFIER")?.setValue(toSave, forKey: "vpnStatusGroup")
+    }
     
     // Process events returned by the OpenVPN library
     func openVPNAdapter(_ openVPNAdapter: OpenVPNAdapter, handleEvent event: OpenVPNAdapterEvent, message: String?) {
         PacketTunnelProvider.timeOutEnabled = true;
         _updateConnectionStatus(openVPNAdapter)
+        _updateEvent(event)
         switch event {
         case .connected:
         PacketTunnelProvider.timeOutEnabled = false;

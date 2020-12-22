@@ -82,6 +82,7 @@ class FlutterOpenvpn {
       StreamingSharedPreferences sp = StreamingSharedPreferences();
       sp.setPrefsName("flutter_openvpn");
       sp.addObserver(_connectionUpdate, (value) {
+        if (Platform.isIOS) return;
         List<String> values = value.split('_');
         _onConnectionStatusChanged?.call(
             values[0], values[1], values[2], value[3]);
@@ -90,6 +91,7 @@ class FlutterOpenvpn {
         _onProfileStatusChanged?.call(value == '0' ? false : true);
       });
       sp.addObserver(_vpnStatus, (value) {
+        if (Platform.isIOS) return;
         _vpnState = value;
         _onVPNStatusChanged?.call(value);
       });
@@ -178,13 +180,6 @@ class FlutterOpenvpn {
             : DateFormat("yyyy-MM-dd HH:mm:ss").format(expireAt),
       },
     ).catchError((error) => error);
-    if (Platform.isIOS && timeOut != null) {
-      Future.delayed(timeOut, () {
-        if (_vpnState != "CONNECTED" && _vpnState != "DISCONNECTED") {
-          _onVPNStatusChanged("TIMEOUT");
-        }
-      });
-    }
     if (isLunched == null) return 0;
     print((isLunched as PlatformException).message);
     return int.tryParse((isLunched as PlatformException).code);
@@ -192,6 +187,10 @@ class FlutterOpenvpn {
 
   /// stops any connected session.
   static Future<void> stopVPN() async {
-    await _channel.invokeMethod("stop");
+    try {
+      await _channel.invokeMethod("stop");
+    } catch (err) {
+      print(err);
+    }
   }
 }
