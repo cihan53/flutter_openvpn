@@ -243,7 +243,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "4f3b917bbd240e5f0588abaa07016111078a42ed"
+      resolved-ref: ebf33bf783f2c6c90e8efbed66caf71ee9929bbb
       url: "https://gitlab.com/topfreelancerdeveloper/streaming_shared_preferences.git"
     source: git
     version: "0.0.1"
