@@ -61,8 +61,6 @@ public class FlutterOpenvpnPlugin implements FlutterPlugin, MethodCallHandler, A
         channel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_openvpn");
         channel.setMethodCallHandler(this);
 
-
-
     }
 
 

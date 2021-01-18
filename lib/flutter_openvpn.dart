@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
@@ -25,7 +26,6 @@ const String _connectionUpdate = 'connectionUpdate';
 const String _vpnStatus = 'vpnStatus';
 const String _vpnStatusGroup = "vpnStatusGroup";
 const String _connectionId = "connectionId";
-const String _startActivityForResult = "startActivityForResult";
 
 class FlutterOpenvpn {
   static const MethodChannel _channel = const MethodChannel('flutter_openvpn');
@@ -34,16 +34,7 @@ class FlutterOpenvpn {
   static OnConnectionStatusChanged _onConnectionStatusChanged;
   static String _vpnState = "";
   static String startActivityForResult = null;
-  static StreamingSharedPreferences sp = StreamingSharedPreferences();
-  SharedPreferences spId;
-
-  FlutterOpenvpn() async {
-    sp.setPrefsName("flutter_openvpn");
-    sp.setValue(_startActivityForResult, "");
-    sp.setValue(_profile, "");
-
-    spId = await SharedPreferences.getInstance();
-  }
+  static Random random = new Random();
 
   /// Initialize plugin.
   ///
@@ -65,46 +56,32 @@ class FlutterOpenvpn {
       String localizedDescription,
       String groupIdentifier}) async {
     if (Platform.isIOS) assert(groupIdentifier != null);
+
+    /**
+     * last value clear
+     */
+    StreamingSharedPreferences sp = StreamingSharedPreferences();
+
+    await sp.setValue(_profile, (random.nextInt(100) + 10).toString());
+
+    SharedPreferences spId = await SharedPreferences.getInstance();
+
     dynamic isInited = await _channel.invokeMethod("init", {
       'localizedDescription': localizedDescription,
       'providerBundleIdentifier': providerBundleIdentifier,
     }).catchError((error) => error);
     if (!(isInited is PlatformException) || isInited == null) {
-      /* _channel.setMethodCallHandler((call) {
-        switch (call.method) {
-          case _connectionUpdate:
-            _onConnectionStatusChanged?.call(
-                call.arguments['duration'],
-                call.arguments['lastPacketRecieve'],
-                call.arguments['byteIn'],
-                call.arguments['byteOut']);
-            break;
-          case _profileLoaded:
-            _onProfileStatusChanged?.call(true);
-            break;
-          case _profileLoadFailed:
-            _onProfileStatusChanged?.call(false);
-            break;
-          default:
-            _onVPNStatusChanged?.call(call.method);
-        }
-        return null;
-      }); */
-
       sp.addObserver(_connectionUpdate, (value) {
         List<String> values = value.split('_');
         _onConnectionStatusChanged?.call(values[0], values[1], values[2], value[3]);
       });
+
       sp.addObserver(_profile, (value) {
         _onProfileStatusChanged?.call(value == '0' ? false : true);
       });
       sp.addObserver(_vpnStatus, (value) {
         _vpnState = value;
         _onVPNStatusChanged?.call(value);
-      });
-
-      sp.addObserver(_startActivityForResult, (value) {
-        print("startActivityForResult " + value);
       });
 
       sp.run();
@@ -123,7 +100,6 @@ class FlutterOpenvpn {
         spGroup.run();
       }
 
-      SharedPreferences spId = await SharedPreferences.getInstance();
       if (spId.containsKey(_connectionId)) {
         List<String> splited = spId.getString(_connectionId).split('{||}');
         isInited.putIfAbsent('connectionId', () => splited[1]);

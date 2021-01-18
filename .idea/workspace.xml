@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a514f45-6ce2-4bc2-b4a1-9d8839e8c1b8" name="Default Changelist" comment="">
+    <list default="true" id="3a514f45-6ce2-4bc2-b4a1-9d8839e8c1b8" name="Default Changelist" comment="jitpack change">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/java/com/topfreelancerdeveloper/flutter_openvpn/FlutterOpenvpnPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/topfreelancerdeveloper/flutter_openvpn/FlutterOpenvpnPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/java/com/topfreelancerdeveloper/flutter_openvpn_example/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/java/com/topfreelancerdeveloper/flutter_openvpn_example/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/newPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/newPage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_openvpn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_openvpn.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/flutter_openvpn.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_openvpn.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
     </list>
@@ -20,6 +18,29 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_2_API_29]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/../flutter_openvpn_library_updated">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="flutter_openvpn_library_updated" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,8 +56,19 @@
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hubbox_flutter_openvpn_old" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../flutter_openvpn_library_updated" />
+    <property name="project.structure.last.edited" value="Build Variants" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.3121319" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
@@ -65,35 +97,69 @@
     <option name="LAST_COMMIT_MESSAGE" value="jitpack change" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2996" y="84" key="CommitChangelistDialog2" timestamp="1608639161228">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="-1443" y="266" key="#PSD" timestamp="1610964151103">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="-1443" y="266" key="#PSD/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964151103" />
+    <state x="-1205" y="227" key="#xdebugger.evaluate" timestamp="1610959880946">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1205" y="227" key="#xdebugger.evaluate/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610959880946" />
+    <state x="-1166" y="266" key="AndroidProcessChooserDialog" timestamp="1610957420507">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1166" y="266" key="AndroidProcessChooserDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610957420507" />
+    <state x="-844" y="84" key="CommitChangelistDialog2" timestamp="1610968941383">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-844" y="84" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610968941383" />
     <state x="1076" y="84" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608638484515" />
     <state x="2996" y="84" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1608639161228" />
-    <state x="2660" y="274" key="FileChooserDialogImpl" timestamp="1609144725054">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="556" height="466" key="DebuggerActiveHint" timestamp="1610959167448">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="556" height="466" key="DebuggerActiveHint/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610959167448" />
+    <state x="-1180" y="274" key="FileChooserDialogImpl" timestamp="1610964034466">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1180" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964034466" />
     <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609144725054" />
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1610629542426">
-      <screen x="-1920" y="4" width="1920" height="1040" />
+    <state width="1877" height="596" key="GridCell.Tab.0.bottom" timestamp="1610964152467">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="596" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964152467" />
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610956796416" />
     <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1610629542426" />
     <state width="1877" height="420" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610094205617" />
-    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1610629542426">
-      <screen x="-1920" y="4" width="1920" height="1040" />
+    <state width="1877" height="596" key="GridCell.Tab.0.center" timestamp="1610964152467">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="596" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964152467" />
+    <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610956796416" />
     <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1610629542426" />
     <state width="1877" height="420" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610094205617" />
-    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1610629542426">
-      <screen x="-1920" y="4" width="1920" height="1040" />
+    <state width="1877" height="596" key="GridCell.Tab.0.left" timestamp="1610964152467">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="596" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964152467" />
+    <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610956796416" />
     <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1610629542426" />
     <state width="1877" height="420" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610094205617" />
-    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1610629542426">
-      <screen x="-1920" y="4" width="1920" height="1040" />
+    <state width="1877" height="596" key="GridCell.Tab.0.right" timestamp="1610964152467">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="596" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964152467" />
+    <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610956796416" />
     <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1610629542426" />
     <state width="1877" height="420" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610094205617" />
+    <state x="-1343" y="224" key="NewModule_or_Project.wizard" timestamp="1610964036224">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1343" y="224" key="NewModule_or_Project.wizard/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964036224" />
+    <state x="-1593" y="94" width="1153" height="852" key="SettingsEditor" timestamp="1610964143682">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1593" y="94" width="1153" height="852" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964143682" />
     <state x="2472" y="252" key="Vcs.Push.Dialog.v2" timestamp="1608639175231">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -103,5 +169,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608907772800" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/../../../flutter/.pub-cache/git/streaming_shared_preferences-ebf33bf783f2c6c90e8efbed66caf71ee9929bbb/lib/streaming_shared_preferences.dart</url>
+          <line>65</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

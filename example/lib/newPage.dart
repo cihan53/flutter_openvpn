@@ -8,7 +8,9 @@ class NewPAge extends StatelessWidget {
 
   final String page;
   final bool navigate;
+
   NewPAge(this.page, this.navigate);
+
   @override
   Widget build(BuildContext context) {
     print("Page " + page);
@@ -24,10 +26,10 @@ class NewPAge extends StatelessWidget {
       });
     if (page == '2') MyApp.initPlatformState();
     if (navigate) {
-      Future.delayed(Duration(seconds: 3), () {
-        print("Page " + page);
-        //Navigator.of(context).popAndPushNamed(subPath + (int.parse(page) + 1).toString());
-      });
+      // Future.delayed(Duration(seconds: 3), () {
+      //  // print("Page " + page);
+      //   //Navigator.of(context).popAndPushNamed(subPath + (int.parse(page) + 1).toString());
+      // });
     }
     return Scaffold(
       body: Column(children: [
