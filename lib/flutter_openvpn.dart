@@ -33,7 +33,6 @@ class FlutterOpenvpn {
   static OnVPNStatusChanged _onVPNStatusChanged;
   static OnConnectionStatusChanged _onConnectionStatusChanged;
   static String _vpnState = "";
-  static String startActivityForResult = null;
   static Random random = new Random();
 
   /// Initialize plugin.
