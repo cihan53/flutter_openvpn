@@ -25,6 +25,7 @@ const String _connectionUpdate = 'connectionUpdate';
 const String _vpnStatus = 'vpnStatus';
 const String _vpnStatusGroup = "vpnStatusGroup";
 const String _connectionId = "connectionId";
+const String _startActivityForResult = "startActivityForResult";
 
 class FlutterOpenvpn {
   static const MethodChannel _channel = const MethodChannel('flutter_openvpn');
@@ -32,6 +33,17 @@ class FlutterOpenvpn {
   static OnVPNStatusChanged _onVPNStatusChanged;
   static OnConnectionStatusChanged _onConnectionStatusChanged;
   static String _vpnState = "";
+  static String startActivityForResult = null;
+  static StreamingSharedPreferences sp = StreamingSharedPreferences();
+  SharedPreferences spId;
+
+  FlutterOpenvpn() async {
+    sp.setPrefsName("flutter_openvpn");
+    sp.setValue(_startActivityForResult, "");
+    sp.setValue(_profile, "");
+
+    spId = await SharedPreferences.getInstance();
+  }
 
   /// Initialize plugin.
   ///
@@ -79,22 +91,22 @@ class FlutterOpenvpn {
         return null;
       }); */
 
-      StreamingSharedPreferences sp = StreamingSharedPreferences();
-      sp.setPrefsName("flutter_openvpn");
       sp.addObserver(_connectionUpdate, (value) {
-        if (Platform.isIOS) return;
         List<String> values = value.split('_');
-        _onConnectionStatusChanged?.call(
-            values[0], values[1], values[2], value[3]);
+        _onConnectionStatusChanged?.call(values[0], values[1], values[2], value[3]);
       });
       sp.addObserver(_profile, (value) {
         _onProfileStatusChanged?.call(value == '0' ? false : true);
       });
       sp.addObserver(_vpnStatus, (value) {
-        if (Platform.isIOS) return;
         _vpnState = value;
         _onVPNStatusChanged?.call(value);
       });
+
+      sp.addObserver(_startActivityForResult, (value) {
+        print("startActivityForResult " + value);
+      });
+
       sp.run();
 
       if (Platform.isIOS) {
@@ -102,8 +114,7 @@ class FlutterOpenvpn {
         spGroup.setPrefsName(groupIdentifier);
         spGroup.addObserver(_connectionUpdate, (value) {
           List<String> values = value.split('_');
-          _onConnectionStatusChanged?.call(
-              values[0], values[1], values[2], value[3]);
+          _onConnectionStatusChanged?.call(values[0], values[1], values[2], value[3]);
         });
         spGroup.addObserver(_vpnStatusGroup, (value) {
           _vpnState = value;
@@ -172,12 +183,8 @@ class FlutterOpenvpn {
         'pass': pass ?? "",
         'conName': connectionName ?? "",
         'conId': connectionId ?? "",
-        'timeOut': Platform.isIOS
-            ? timeOut?.inSeconds?.toString()
-            : timeOut?.inSeconds,
-        'expireAt': expireAt == null
-            ? null
-            : DateFormat("yyyy-MM-dd HH:mm:ss").format(expireAt),
+        'timeOut': Platform.isIOS ? timeOut?.inSeconds?.toString() : timeOut?.inSeconds,
+        'expireAt': expireAt == null ? null : DateFormat("yyyy-MM-dd HH:mm:ss").format(expireAt),
       },
     ).catchError((error) => error);
     if (isLunched == null) return 0;

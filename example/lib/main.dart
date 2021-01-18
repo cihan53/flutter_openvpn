@@ -3,30 +3,38 @@ import 'dart:async';
 
 import 'package:flutter_openvpn/flutter_openvpn.dart';
 import 'package:flutter_openvpn_example/newPage.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 void main() {
   runApp(MyApp());
 }
 
+Future<String> getFileData(String path) async {
+  try {
+    return await rootBundle.loadString(path);
+  } catch (_) {
+    return null;
+  }
+}
+
 class MyApp extends StatefulWidget {
   static Future<void> initPlatformState() async {
-    await FlutterOpenvpn.lunchVpn(
-      '''
+    String fileData = await getFileData("assets/vpn.conf");
 
-      ''',
+    int i = await FlutterOpenvpn.lunchVpn(
+      fileData,
       (isProfileLoaded) {
         print('isProfileLoaded : $isProfileLoaded');
       },
       (vpnActivated) {
         print('vpnActivated : $vpnActivated');
       },
-      user: '',
-      pass: '',
-      onConnectionStatusChanged:
-          (duration, lastPacketRecieve, byteIn, byteOut) =>
-              print('BYEIN : $byteIn'),
-      connectionId: "superman",
-      connectionName: "xxx",
+      user: 'SubUser-JVFUK5SEPV5UCTTT_67_234@HUB_MOD305',
+      pass: 'MV3F22CIPBXEUYLVNRKVAYLUJZHWGQ25',
+      onConnectionStatusChanged: (duration, lastPacketRecieve, byteIn, byteOut) =>
+          print('BYEIN : $byteIn'),
+      connectionId: "HUB_MOD305",
+      connectionName: "cihantest",
       timeOut: Duration(seconds: 5),
       expireAt: DateTime.now().add(
         Duration(
@@ -34,6 +42,7 @@ class MyApp extends StatefulWidget {
         ),
       ),
     );
+    print("lunchVpn " + i.toString());
   }
 
   @override

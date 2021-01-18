@@ -1,6 +1,9 @@
 package com.topfreelancerdeveloper.flutter_openvpn_example;
 
 import android.content.Intent;
+import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import com.topfreelancerdeveloper.flutter_openvpn.FlutterOpenvpnPlugin;
 

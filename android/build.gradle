@@ -30,15 +30,15 @@ android {
 
     defaultConfig {
         minSdkVersion 16
-        
+
     }
     lintOptions {
         disable 'InvalidPackage'
     }
     dependencies {
 //        implementation 'com.github.Topfreelancerdeveloperr:flutter_openvpn_library_updated:d5809c66a2'
-        implementation 'com.github.cihan53:flutter_openvpn_library_updated:971f5da40e'
-
+//       implementation 'com.github.cihan53:flutter_openvpn_library_updated:5bb178a8f9'
+        implementation project(':vpnLib')
     }
 
 }

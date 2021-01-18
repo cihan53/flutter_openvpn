@@ -11,13 +11,13 @@ class NewPAge extends StatelessWidget {
   NewPAge(this.page, this.navigate);
   @override
   Widget build(BuildContext context) {
+    print("Page " + page);
     if (page == '0')
       FlutterOpenvpn.init(
               localizedDescription: "ExampleVPN",
               providerBundleIdentifier:
                   "com.topfreelancerdeveloper.flutterOpenvpnExample.RunnerExtension",
-              groupIdentifier:
-                  'group.com.topfreelancerdeveloper.flutterOpenvpnExample')
+              groupIdentifier: 'group.com.topfreelancerdeveloper.flutterOpenvpnExample')
           .then((value) {
         print(value);
         //Fluttertoast.showToast(msg: value.toString(), textColor: Colors.red);
@@ -25,18 +25,26 @@ class NewPAge extends StatelessWidget {
     if (page == '2') MyApp.initPlatformState();
     if (navigate) {
       Future.delayed(Duration(seconds: 3), () {
-        Navigator.of(context)
-            .popAndPushNamed(subPath + (int.parse(page) + 1).toString());
+        print("Page " + page);
+        //Navigator.of(context).popAndPushNamed(subPath + (int.parse(page) + 1).toString());
       });
     }
     return Scaffold(
-      body: Center(
-        child: Center(
-          child: Text(
-            page.toString(),
-          ),
+      body: Column(children: [
+        RaisedButton(
+          onPressed: () {
+            Navigator.of(context).popAndPushNamed(subPath + (int.parse(page) + 1).toString());
+          },
+          child: const Text('Enabled Button', style: TextStyle(fontSize: 20)),
         ),
-      ),
+        Center(
+          child: Center(
+            child: Text(
+              page.toString(),
+            ),
+          ),
+        )
+      ]),
     );
   }
 }
