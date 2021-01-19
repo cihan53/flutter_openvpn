@@ -9,10 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a514f45-6ce2-4bc2-b4a1-9d8839e8c1b8" name="Default Changelist" comment="state logger">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/settings.gradle" afterDir="false" />
+    <list default="true" id="3a514f45-6ce2-4bc2-b4a1-9d8839e8c1b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,14 +226,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611058668246</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="state logger">
+      <created>1611059401356</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1611059401356</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="jitpack change" />
-    <MESSAGE value="state logger" />
     <MESSAGE value="State Logger" />
-    <option name="LAST_COMMIT_MESSAGE" value="State Logger" />
+    <MESSAGE value="state logger" />
+    <option name="LAST_COMMIT_MESSAGE" value="state logger" />
   </component>
   <component name="WindowStateProjectService">
     <state x="477" y="266" key="#PSD" timestamp="1611056539419">
@@ -269,14 +273,14 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1166" y="266" key="AndroidProcessChooserDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610957420507" />
-    <state x="993" y="84" key="CommitChangelistDialog2" timestamp="1611059367187">
+    <state x="993" y="84" key="CommitChangelistDialog2" timestamp="1611059400592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-844" y="84" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610968941383" />
     <state x="1076" y="84" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610971338863" />
     <state x="1076" y="84" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608638484515" />
     <state x="2996" y="84" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1608639161228" />
-    <state x="993" y="84" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611059367187" />
+    <state x="993" y="84" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611059400592" />
     <state width="556" height="466" key="DebuggerActiveHint" timestamp="1610959167448">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -337,13 +341,13 @@
     <state x="-1593" y="94" width="1153" height="852" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964143682" />
     <state x="327" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611056673603" />
     <state x="2247" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610979338355" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1611058671867">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1611059403550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610971346154" />
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608638487402" />
     <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1608639175231" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611058671867" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611059403550" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1608907772800">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -358,27 +362,27 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java</url>
-          <line>94</line>
+          <line>93</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java</url>
-          <line>187</line>
+          <line>186</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java</url>
-          <line>138</line>
+          <line>137</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java</url>
-          <line>109</line>
+          <line>108</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java</url>
-          <line>83</line>
+          <line>82</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
