@@ -1,6 +1,14 @@
 .DS_Store
 .dart_tool/
-
+.idea*
+.idea
+.idea/**
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
 .packages
 .pub/
 
