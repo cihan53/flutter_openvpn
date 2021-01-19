@@ -5,6 +5,8 @@
 
 include ':app'
 
+include('hubbox')
+project(':hubbox').projectDir = file('C:\\PROJELER\\github\\hubboxm2m\\')
 
 def localPropertiesFile = new File(rootProject.projectDir, "local.properties")
 def properties = new Properties()

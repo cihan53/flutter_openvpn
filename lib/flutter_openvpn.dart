@@ -34,6 +34,7 @@ class FlutterOpenvpn {
   static OnConnectionStatusChanged _onConnectionStatusChanged;
   static String _vpnState = "";
   static Random random = new Random();
+  static StreamingSharedPreferences sp = StreamingSharedPreferences();
 
   /// Initialize plugin.
   ///
@@ -59,11 +60,10 @@ class FlutterOpenvpn {
     /**
      * last value clear
      */
-    StreamingSharedPreferences sp = StreamingSharedPreferences();
-
-    await sp.setValue(_profile, (random.nextInt(100) + 10).toString());
 
     SharedPreferences spId = await SharedPreferences.getInstance();
+
+    // sp.setInterval(Duration(milliseconds: 300));
 
     dynamic isInited = await _channel.invokeMethod("init", {
       'localizedDescription': localizedDescription,
@@ -74,9 +74,8 @@ class FlutterOpenvpn {
         List<String> values = value.split('_');
         _onConnectionStatusChanged?.call(values[0], values[1], values[2], value[3]);
       });
-
       sp.addObserver(_profile, (value) {
-        _onProfileStatusChanged?.call(value == '0' ? false : true);
+        _onProfileStatusChanged?.call(value == '1' ? true : false);
       });
       sp.addObserver(_vpnStatus, (value) {
         _vpnState = value;
@@ -147,8 +146,11 @@ class FlutterOpenvpn {
     _onProfileStatusChanged = onProfileStatusChanged;
     _onVPNStatusChanged = onVPNStatusChanged;
     _onConnectionStatusChanged = onConnectionStatusChanged;
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    await sp.setString(_connectionId, '$connectionName{||}$connectionId');
+    SharedPreferences _sp = await SharedPreferences.getInstance();
+    await _sp.setString(_connectionId, '$connectionName{||}$connectionId');
+
+    // sp.setInterval(Duration(seconds: 300));
+    // await sp.setValue(_profile, (random.nextInt(100) + 10).toString());
 
     dynamic isLunched = await _channel.invokeMethod(
       "lunch",
@@ -161,7 +163,7 @@ class FlutterOpenvpn {
         'timeOut': Platform.isIOS ? timeOut?.inSeconds?.toString() : timeOut?.inSeconds,
         'expireAt': expireAt == null ? null : DateFormat("yyyy-MM-dd HH:mm:ss").format(expireAt),
       },
-    ).catchError((error) => error);
+    ).catchError((error) => print(error));
     if (isLunched == null) return 0;
     print((isLunched as PlatformException).message);
     return int.tryParse((isLunched as PlatformException).code);

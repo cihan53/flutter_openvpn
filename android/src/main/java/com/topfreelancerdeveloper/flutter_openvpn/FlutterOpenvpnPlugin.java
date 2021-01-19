@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Random;
 
 import de.blinkt.openvpn.core.OpenVPNService;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -113,9 +114,9 @@ public class FlutterOpenvpnPlugin implements FlutterPlugin, MethodCallHandler, A
                 vpn.setOnVPNStatusChangeListener(new OnVPNStatusChangeListener() {
                     @Override
                     public void onProfileLoaded(boolean profileLoaded) {
-                        //channel.invokeMethod(profileLoaded ? VpnStatus.ProfileLoaded.callMethod : VpnStatus.ProfileLoadFailed.callMethod , null);
-                        activity.getPreferences(Context.MODE_PRIVATE).edit().putString("profile", profileLoaded ? "1" : "0").apply();
-//                        activity.getSharedPreferences("flutter_openvpn", Context.MODE_PRIVATE).edit().putString("startActivityForResult", profileLoaded ? "1" : "0").commit();
+                        Random rand = new Random(); //instance of random class
+                        int upperbound = 100;
+                        activity.getPreferences(Context.MODE_PRIVATE).edit().putString("profile", profileLoaded ? "1" : (rand.nextInt(upperbound) + 10) + "").apply();
                         if (profileLoaded) {
                             vpn.init();
                             result.success(null);
