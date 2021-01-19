@@ -5,6 +5,9 @@
 
 include ':app'
 
+include(':vpnlib')
+project(':vpnlib').projectDir = file('C:\\PROJELER\\github\\flutter_openvpn_library_updated\\')
+
 include('hubbox')
 project(':hubbox').projectDir = file('C:\\PROJELER\\github\\hubboxm2m\\')
 

@@ -38,6 +38,8 @@ android {
     dependencies {
 //        implementation 'com.github.Topfreelancerdeveloperr:flutter_openvpn_library_updated:d5809c66a2'
         implementation 'com.github.cihan53:flutter_openvpn_library_updated:developer-SNAPSHOT'
+//        implementation project(':vpnlib')
+//        implementation project(':vpnlib')
 //           implementation project( path: 'C:\\PROJELER\\github\\flutter_openvpn_library_updated\\vpnLib')
         //implementation fileTree(dir: 'C:\\PROJELER\\github\\flutter_openvpn_library_updated\\vpnLib',include: ['*.jar'])
 
