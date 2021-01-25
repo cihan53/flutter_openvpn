@@ -9,10 +9,12 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a514f45-6ce2-4bc2-b4a1-9d8839e8c1b8" name="Default Changelist" comment="">
+    <list default="true" id="3a514f45-6ce2-4bc2-b4a1-9d8839e8c1b8" name="Default Changelist" comment="VpnStatus Listener 4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flutter_openvpn_library_updated/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_openvpn_library_updated/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/topfreelancerdeveloper/flutter_openvpn/FlutterOpenvpnPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/topfreelancerdeveloper/flutter_openvpn/FlutterOpenvpnPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_openvpn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_openvpn.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/core/VPNLaunchHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/core/VPNLaunchHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +84,7 @@
     </system>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../flutter_openvpn_library_updated" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1m9ZKWbIzJKsYJZ7s3aduluI8XS" />
   <component name="ProjectViewState">
@@ -102,7 +104,7 @@
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
-  <component name="RunManager" selected="Gradle.flutter_openvpn_library_updated:vpnLib [buildNeeded]">
+  <component name="RunManager" selected="Flutter.example/lib/main.dart">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -294,7 +296,28 @@
       <option name="project" value="LOCAL" />
       <updated>1611062125627</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="VpnStatus Listener 3">
+      <created>1611062772018</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1611062772018</updated>
+    </task>
+    <task id="LOCAL-00013" summary="VpnStatus Listener 4">
+      <created>1611063259916</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1611063259916</updated>
+    </task>
+    <task id="LOCAL-00014" summary="VpnStatus Listener 4">
+      <created>1611063276308</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1611063276308</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -302,27 +325,33 @@
     <MESSAGE value="State Logger" />
     <MESSAGE value="state logger" />
     <MESSAGE value="VpnStatus Listener 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="VpnStatus Listener 2" />
+    <MESSAGE value="VpnStatus Listener 3" />
+    <MESSAGE value="VpnStatus Listener 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="VpnStatus Listener 4" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2556" y="313" key="#Hubbox" timestamp="1611143112553">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2556" y="313" key="#Hubbox/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611143112553" />
     <state x="477" y="266" key="#PSD" timestamp="1611056539419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1443" y="266" key="#PSD/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964151103" />
     <state x="477" y="266" key="#PSD/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611056539419" />
     <state x="2397" y="266" key="#PSD/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610979049513" />
-    <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610979113424">
+    <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611143188809">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610979113424" />
+    <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611143188809" />
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1611058026159">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611058026159" />
-    <state x="2609" y="309" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1610979111980">
+    <state x="2609" y="309" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1611143159223">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2609" y="309" key="#com.intellij.ide.util.TreeFileChooserDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610979111980" />
+    <state x="2609" y="309" key="#com.intellij.ide.util.TreeFileChooserDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611143159223" />
     <state x="-1205" y="227" key="#xdebugger.evaluate" timestamp="1610959880946">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -335,14 +364,14 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1166" y="266" key="AndroidProcessChooserDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610957420507" />
-    <state x="993" y="84" key="CommitChangelistDialog2" timestamp="1611062125173">
+    <state x="993" y="84" key="CommitChangelistDialog2" timestamp="1611063310998">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-844" y="84" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610968941383" />
     <state x="1076" y="84" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610971338863" />
     <state x="1076" y="84" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608638484515" />
     <state x="2996" y="84" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1608639161228" />
-    <state x="993" y="84" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611062125173" />
+    <state x="993" y="84" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611063310998" />
     <state width="556" height="466" key="DebuggerActiveHint" timestamp="1610959167448">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -357,42 +386,42 @@
     <state x="-1180" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964034466" />
     <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609144725054" />
     <state x="2660" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611041039880" />
-    <state width="1877" height="276" key="GridCell.Tab.0.bottom" timestamp="1611059911957">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="191" key="GridCell.Tab.0.bottom" timestamp="1611222497538">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="596" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964152467" />
     <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610956796416" />
     <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1610629542426" />
     <state width="1877" height="420" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610094205617" />
     <state width="1877" height="276" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611059911957" />
-    <state width="1877" height="232" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611041532304" />
-    <state width="1877" height="276" key="GridCell.Tab.0.center" timestamp="1611059911957">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="191" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611222497538" />
+    <state width="1877" height="191" key="GridCell.Tab.0.center" timestamp="1611222497538">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="596" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964152467" />
     <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610956796416" />
     <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1610629542426" />
     <state width="1877" height="420" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610094205617" />
     <state width="1877" height="276" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611059911957" />
-    <state width="1877" height="232" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611041532304" />
-    <state width="1877" height="276" key="GridCell.Tab.0.left" timestamp="1611059911957">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="191" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611222497538" />
+    <state width="1877" height="191" key="GridCell.Tab.0.left" timestamp="1611222497538">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="596" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964152467" />
     <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610956796416" />
     <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1610629542426" />
     <state width="1877" height="420" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610094205617" />
     <state width="1877" height="276" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611059911957" />
-    <state width="1877" height="232" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611041532304" />
-    <state width="1877" height="276" key="GridCell.Tab.0.right" timestamp="1611059911957">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="191" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611222497538" />
+    <state width="1877" height="191" key="GridCell.Tab.0.right" timestamp="1611222497538">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="596" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964152467" />
     <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610956796416" />
     <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1610629542426" />
     <state width="1877" height="420" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610094205617" />
     <state width="1877" height="276" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611059911957" />
-    <state width="1877" height="232" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611041532304" />
+    <state width="1877" height="191" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611222497538" />
     <state x="-1343" y="224" key="NewModule_or_Project.wizard" timestamp="1610964036224">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -403,13 +432,13 @@
     <state x="-1593" y="94" width="1153" height="852" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1610964143682" />
     <state x="327" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611056673603" />
     <state x="2247" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610979338355" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1611062129690">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1611063278951">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610971346154" />
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608638487402" />
     <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1608639175231" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611062129690" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611063278951" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1608907772800">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -424,27 +453,27 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java</url>
-          <line>93</line>
+          <line>92</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java</url>
-          <line>186</line>
+          <line>185</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java</url>
-          <line>137</line>
+          <line>136</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java</url>
-          <line>108</line>
+          <line>107</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/../flutter_openvpn_library_updated/vpnLib/src/main/java/de/blinkt/openvpn/OboloiVPN.java</url>
-          <line>82</line>
+          <line>81</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>

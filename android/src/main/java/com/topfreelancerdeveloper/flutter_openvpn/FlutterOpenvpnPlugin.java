@@ -125,7 +125,6 @@ public class FlutterOpenvpnPlugin implements FlutterPlugin, MethodCallHandler, A
 
                     @Override
                     public void onVPNStatusChanged(String status) {
-                        Log.d("onVPNStatusChanged", "onVPNStatusChanged: " + status);
                         activity.getPreferences(Context.MODE_PRIVATE).edit().putString("vpnStatus", status).apply();
 
                     }
